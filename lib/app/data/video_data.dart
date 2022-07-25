@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../core/enums/feature_enum.dart';
 import '../model/editor_button_model.dart';
 
-class VideoModel {
-  VideoModel._();
+class VideoData {
+  const VideoData._();
 
-  static List<EditorButtonModel> listButton = const [
+  static const List<EditorButtonModel> listButton = [
     EditorButtonModel(
       icon: Icons.cut,
       text: 'Trim',

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import '../model/editor_button_model.dart';
 
 class ListEditorButton {
-  static List<EditorButtonModel> listButton = const [
+  const ListEditorButton._();
+  static const List<EditorButtonModel> listButton = [
     EditorButtonModel(
       icon: Icons.design_services_outlined,
       text: 'Edit',

@@ -5,10 +5,10 @@ import '../../../data/element_data.dart';
 import '../../../data/filter_data.dart';
 import '../../../data/video_data.dart';
 
-List<List<EditorButtonModel>> listButtonValue = [
+const List<List<EditorButtonModel>> listButtonValue = [
   ListEditorButton.listButton,
-  VideoModel.listButton,
-  AudioModel.listButton,
-  ElementModel.listButton,
-  FilterModel.listButton,
+  VideoData.listButton,
+  AudioData.listButton,
+  ElementData.listButton,
+  FilterData.listButton,
 ];

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '../core/enums/feature_enum.dart';
 import '../model/editor_button_model.dart';
 
-class AudioModel {
-  AudioModel._();
+class AudioData {
+  const AudioData._();
 
-  static List<EditorButtonModel> listButton = const [
+  static const List<EditorButtonModel> listButton = [
     EditorButtonModel(
       icon: Icons.music_note_outlined,
       text: 'music',
