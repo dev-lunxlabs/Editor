@@ -1,32 +1,5 @@
 import 'package:flutter/material.dart';
 
-class EditButton extends StatelessWidget {
-  const EditButton({
-    Key? key,
-    this.onTap,
-    required this.icon,
-    required this.text,
-  }) : super(key: key);
-  final VoidCallback? onTap;
-  final IconData icon;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onTap,
-      style: TextButton.styleFrom(primary: Colors.black),
-      child: Column(
-        children: [
-          Icon(icon),
-          const SizedBox(height: 10),
-          Text(text),
-        ],
-      ),
-    );
-  }
-}
-
 class EditorButton extends StatelessWidget {
   const EditorButton({
     Key? key,
