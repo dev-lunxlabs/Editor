@@ -14,8 +14,7 @@ enum Feature {
   autoCaption,
   rotate,
   add,
-  remove,
-  extract,
+
   brush,
   stickers,
   image,
@@ -27,4 +26,6 @@ enum Feature {
   music,
   sound,
   record,
+  remove,
+  extract,
 }

@@ -1,0 +1,16 @@
+enum VideoFeature{
+  trim,
+  crop,
+  concatenate,
+  split,
+  cover,
+  speed,
+  flipX,
+  flipY,
+  aspectRatio,
+  transition,
+  text,
+  caption,
+  autoCaption,
+  rotate,
+}

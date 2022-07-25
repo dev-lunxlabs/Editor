@@ -1,11 +1,12 @@
+import 'package:editor/app/core/enums/feature_enum.dart';
 import 'package:editor/app/core/enums/rectangle_enum.dart';
+import 'package:editor/app/core/enums/button_type.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import '../../../core/enums/aratio_map.dart';
 import '../../../data/editor_button_data.dart';
 import '../../../model/editor_button_model.dart';
 import 'package:flutter/material.dart';
-
 import 'list_button_value.dart';
 
 class EditorController extends GetxController with GetTickerProviderStateMixin {
@@ -33,6 +34,8 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
   //  $ ffmpeg -i input.mp4 -ss 00:05:10 -to 00:15:30 -c:v copy -c:a copy output2.mp4
   RxDouble trimStart = 0.0.obs;
   RxDouble trimEnd = 0.0.obs;
+
+  Rx<ButtonType> buttonType = ButtonType.core.obs;
 
   //  Crop
   //  crop=W:H:X:Y
@@ -94,38 +97,24 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
 
   void concatenate() {}
 
-  void exeOperation() {}
-}
+  void showButton() {
+    switch (buttonType.value){
+      case ButtonType.none:
+        // TODO: Handle this case.
+        break;
+      case ButtonType.core:
+        // TODO: Handle this case.
+        break;
+      case ButtonType.feature:
+        // TODO: Handle this case.
+        break;
+      case ButtonType.layer:
+        // TODO: Handle this case.
+        break;
+    }
+  }
 
-// switch (index) {
-//   case 0:
-//     {
-//       listButton = ListEditButton.listButton;
-//     }
-//     break;
-//   case 1:
-//     {
-//       listButton = VideoModel.listButton;
-//     }
-//     break;
-//   case 2:
-//     {
-//       listButton = AudioModel.listButton;
-//     }
-//     break;
-//   case 3:
-//     {
-//       listButton = ElementModel.listButton;
-//     }
-//     break;
-//   case 4:
-//     {
-//       listButton = FilterModel.listButton;
-//     }
-//     break;
-//   default:
-//     {
-//       listButton = ListEditButton.listButton;
-//     }
-//     break;
-// }
+  void exeOperation({required int index}){
+    switch(){}
+  }
+}
