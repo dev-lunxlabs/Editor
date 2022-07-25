@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'editor_button_model.dart';
+import '../model/editor_button_model.dart';
 
 class FilterModel {
   FilterModel._();
 
-  static List<EditorButtonModel> listButton = [
+  static List<EditorButtonModel> listButton = const[
     EditorButtonModel(icon: Icons.art_track_outlined, text: 'Templates'),
     EditorButtonModel(icon: Icons.palette_outlined, text: 'Colors'),
     EditorButtonModel(icon: Icons.contrast, text: 'Contrast'),

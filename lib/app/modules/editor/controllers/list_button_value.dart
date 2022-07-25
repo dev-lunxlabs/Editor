@@ -1,11 +1,12 @@
-import '../../../model/audio_model.dart';
+import '../../../data/audio_data.dart';
+import '../../../data/editor_button_data.dart';
 import '../../../model/editor_button_model.dart';
-import '../../../model/element_model.dart';
-import '../../../model/filter_model.dart';
-import '../../../model/video_model.dart';
+import '../../../data/element_data.dart';
+import '../../../data/filter_data.dart';
+import '../../../data/video_data.dart';
 
 List<List<EditorButtonModel>> listButtonValue = [
-  ListEditButton.listButton,
+  ListEditorButton.listButton,
   VideoModel.listButton,
   AudioModel.listButton,
   ElementModel.listButton,

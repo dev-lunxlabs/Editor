@@ -217,71 +217,74 @@ class EditorView extends GetView<EditorController> {
   }
 
   Widget buttonBar() {
-    return controller.showButtonBar.isTrue
-        ? controller.showPrimaryBtn.isTrue
-            ? Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  SizedBox(
-                    height: 70,
-                    width: Get.width - 90,
-                    child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: controller.listButton.length,
-                        itemBuilder: (_, index) {
-                          return EditorButton(
-                            onTap: () {
-                              controller.selectBottomList(index + 1);
-                            },
-                            icon: controller.listButton[index].icon,
-                            text: controller.listButton[index].text,
-                          );
-                        }),
-                  ),
-                  const SizedBox(
-                    height: 40,
-                    child: VerticalDivider(
-                      thickness: 1,
-                      width: 0,
-                    ),
-                  ),
-                  const SizedBox(width: 18),
-                  FloatingActionButton(
-                    onPressed: () {
-                      // showModalBottomSheet(
-                      //     isScrollControlled: true,
-                      //     context: context,
-                      //     builder: (_) {
-                      //       return SizedBox(
-                      //         height: 600,
-                      //       );
-                      //     });
-                      Get.bottomSheet(
-                        SizedBox(
-                          height: 700,
-                          child: Container(color: Colors.purple),
-                        ),
-                      );
+    return Obx((){
+      return controller.showButtonBar.isTrue
+          ? controller.showPrimaryBtn.isTrue
+          ? Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          SizedBox(
+            height: 70,
+            width: Get.width - 90,
+            child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: controller.listButton.length,
+                itemBuilder: (_, index) {
+                  return EditorButton(
+                    onTap: () {
+                      controller.selectBottomList(index + 1);
                     },
-                    child: const Icon(Icons.add),
-                  )
-                ],
-              )
-            : SizedBox(
-                height: 70,
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: controller.listButton.length,
-                    itemBuilder: (_, index) {
-                      return EditorButton(
-                        onTap: () {},
-                        icon: controller.listButton[index].icon,
-                        text: controller.listButton[index].text,
-                      );
-                    }),
-              )
-        : const SizedBox();
+                    icon: controller.listButton[index].icon,
+                    text: controller.listButton[index].text,
+                  );
+                }),
+          ),
+          const SizedBox(
+            height: 40,
+            child: VerticalDivider(
+              thickness: 1,
+              width: 0,
+            ),
+          ),
+          const SizedBox(width: 18),
+          FloatingActionButton(
+            onPressed: () {
+              // showModalBottomSheet(
+              //     isScrollControlled: true,
+              //     context: context,
+              //     builder: (_) {
+              //       return SizedBox(
+              //         height: 600,
+              //       );
+              //     });
+              Get.bottomSheet(
+                SizedBox(
+                  height: 700,
+                  child: Container(color: Colors.purple),
+                ),
+              );
+            },
+            child: const Icon(Icons.add),
+          )
+        ],
+      )
+          : SizedBox(
+        height: 70,
+        child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: controller.listButton.length,
+            itemBuilder: (_, index) {
+              return EditorButton(
+                onTap: () {},
+                icon: controller.listButton[index].icon,
+                text: controller.listButton[index].text,
+              );
+            }),
+      )
+          : const SizedBox();
+    });
+
   }
 }

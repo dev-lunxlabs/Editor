@@ -1,9 +1,11 @@
+import 'package:editor/app/core/enums/rectangle_enum.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
+import '../../../core/enums/aratio_map.dart';
+import '../../../data/editor_button_data.dart';
 import '../../../model/editor_button_model.dart';
 import 'package:flutter/material.dart';
 
-import 'editor_enum.dart';
 import 'list_button_value.dart';
 
 class EditorController extends GetxController with GetTickerProviderStateMixin {
@@ -38,9 +40,9 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
   RxDouble cropWidth = 0.0.obs;
   RxDouble cropHeight = 0.0.obs;
 
-  Boundary boundary = Boundary.none;
+  Rectangle rectangle = Rectangle.none;
   Rx<Rect> rect = Rect.zero.obs;
-  double? aspectRatio = vRatio['custom'];
+  double? aspectRatio = aRatio['custom'];
 
   //  Rect
   //  Transform
@@ -56,7 +58,7 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
   void onInit() {
     //videoPath = Get.arguments[0];
 
-    listButton = ListEditButton.listButton;
+    listButton = ListEditorButton.listButton;
     // videoPlayerController = VideoPlayerController.file(File(videoPath));
     // videoPlayerController.initialize();
     super.onInit();

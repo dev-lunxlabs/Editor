@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'editor_button_model.dart';
+import '../model/editor_button_model.dart';
 
 class ElementModel {
   ElementModel._();
 
-  static List<EditorButtonModel> listButton = [
+  static List<EditorButtonModel> listButton = const[
     EditorButtonModel(icon: Icons.brush_outlined, text: 'Brush'),
     EditorButtonModel(icon: Icons.texture, text: 'Background'),
     EditorButtonModel(icon: Icons.font_download, text: 'Watermark'),

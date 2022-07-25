@@ -1,66 +1,66 @@
-import 'package:editor/app/modules/editor/controllers/editor_enum.dart';
 import 'package:flutter/material.dart';
 
-import 'editor_button_model.dart';
+import '../core/enums/feature_enum.dart';
+import '../model/editor_button_model.dart';
 
 class VideoModel {
   VideoModel._();
 
-  static List<EditorButtonModel> listButton = const[
+  static List<EditorButtonModel> listButton = const [
     EditorButtonModel(
       icon: Icons.cut,
       text: 'Trim',
-      operation: Operation.trim,
+      feature: Feature.trim,
     ),
     EditorButtonModel(
       icon: Icons.crop,
       text: 'Crop',
-      operation: Operation.crop,
+      feature: Feature.crop,
     ),
     EditorButtonModel(
       icon: Icons.add_box,
       text: 'Add',
-      operation: Operation.add,
+      feature: Feature.add,
     ),
     EditorButtonModel(
       icon: Icons.speed,
       text: 'Speed',
-      operation: Operation.speed,
+      feature: Feature.speed,
     ),
     EditorButtonModel(
       icon: Icons.flip,
       text: 'Flip',
-      operation: Operation.flip,
+      feature: Feature.flipX,
     ),
     EditorButtonModel(
       icon: Icons.abc,
       text: 'Text',
-      operation: Operation.text,
+      feature: Feature.text,
     ),
     EditorButtonModel(
       icon: Icons.closed_caption,
       text: 'Caption',
-      operation: Operation.autoCaption,
+      feature: Feature.autoCaption,
     ),
     EditorButtonModel(
       icon: Icons.rotate_90_degrees_cw_outlined,
       text: 'Rotate',
-      operation: Operation.rotate,
+      feature: Feature.rotate,
     ),
     EditorButtonModel(
       icon: Icons.roller_shades_closed,
       text: 'Cover',
-      operation: Operation.cover,
+      feature: Feature.cover,
     ),
     EditorButtonModel(
       icon: Icons.aspect_ratio,
       text: 'Ratio',
-      operation: Operation.aspectRatio,
+      feature: Feature.aspectRatio,
     ),
     EditorButtonModel(
       icon: Icons.filter_none,
       text: 'Transitions',
-      operation: Operation.transition,
+      feature: Feature.transition,
     ),
   ];
 }
