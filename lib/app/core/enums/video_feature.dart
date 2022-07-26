@@ -5,6 +5,7 @@ enum VideoFeature{
   split,
   cover,
   speed,
+  add,
   flipX,
   flipY,
   aspectRatio,

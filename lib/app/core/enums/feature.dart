@@ -1,4 +1,5 @@
-enum FeatureType {
+enum Feature {
+  none,
   video,
   audio,
   element,

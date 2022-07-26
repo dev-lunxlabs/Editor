@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../core/enums/feature_enum.dart';
+import '../core/enums/video_feature.dart';
 import '../model/editor_button_model.dart';
 
 class VideoData {
@@ -10,57 +9,57 @@ class VideoData {
     EditorButtonModel(
       icon: Icons.cut,
       text: 'Trim',
-      feature: Feature.trim,
+      videoFeature: VideoFeature.trim,
     ),
     EditorButtonModel(
       icon: Icons.crop,
       text: 'Crop',
-      feature: Feature.crop,
+      videoFeature: VideoFeature.crop,
     ),
     EditorButtonModel(
       icon: Icons.add_box,
       text: 'Add',
-      feature: Feature.add,
+      videoFeature: VideoFeature.add,
     ),
     EditorButtonModel(
       icon: Icons.speed,
       text: 'Speed',
-      feature: Feature.speed,
+      videoFeature: VideoFeature.speed,
     ),
     EditorButtonModel(
       icon: Icons.flip,
       text: 'Flip',
-      feature: Feature.flipX,
+      videoFeature: VideoFeature.flipX,
     ),
     EditorButtonModel(
       icon: Icons.abc,
       text: 'Text',
-      feature: Feature.text,
+      videoFeature: VideoFeature.text,
     ),
     EditorButtonModel(
       icon: Icons.closed_caption,
       text: 'Caption',
-      feature: Feature.autoCaption,
+      videoFeature: VideoFeature.autoCaption,
     ),
     EditorButtonModel(
       icon: Icons.rotate_90_degrees_cw_outlined,
       text: 'Rotate',
-      feature: Feature.rotate,
+      videoFeature: VideoFeature.rotate,
     ),
     EditorButtonModel(
       icon: Icons.roller_shades_closed,
       text: 'Cover',
-      feature: Feature.cover,
+      videoFeature: VideoFeature.cover,
     ),
     EditorButtonModel(
       icon: Icons.aspect_ratio,
       text: 'Ratio',
-      feature: Feature.aspectRatio,
+      videoFeature: VideoFeature.aspectRatio,
     ),
     EditorButtonModel(
       icon: Icons.filter_none,
       text: 'Transitions',
-      feature: Feature.transition,
+      videoFeature: VideoFeature.transition,
     ),
   ];
 }

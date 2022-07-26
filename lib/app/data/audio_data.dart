@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/enums/feature_enum.dart';
+import '../core/enums/audio_feature.dart';
 import '../model/editor_button_model.dart';
 
 class AudioData {
@@ -7,19 +7,20 @@ class AudioData {
 
   static const List<EditorButtonModel> listButton = [
     EditorButtonModel(
+      audioFeature: AudioFeature.music,
       icon: Icons.music_note_outlined,
       text: 'music',
-      feature: Feature.music,
+
     ),
     EditorButtonModel(
       icon: Icons.volume_up,
       text: 'Sound',
-      feature: Feature.sound,
+      audioFeature: AudioFeature.sound,
     ),
     EditorButtonModel(
       icon: Icons.mic,
       text: 'Record',
-      feature: Feature.record,
+      audioFeature: AudioFeature.record,
     ),
   ];
 }

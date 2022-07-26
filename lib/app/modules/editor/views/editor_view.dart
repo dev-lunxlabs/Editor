@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../widgets/editor_button.dart';
+import '../../../core/enums/button_type.dart';
+
+import '../../../core/enums/feature.dart';
 import '../controllers/editor_controller.dart';
+import 'console.dart';
 
 class EditorView extends GetView<EditorController> {
   const EditorView({Key? key}) : super(key: key);
@@ -15,8 +18,11 @@ class EditorView extends GetView<EditorController> {
         hoverColor: Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: () {
-          debugPrint("index is: 0");
-          controller.selectBottomList(0);
+          //controller.callFeature(Feature.none);
+          controller.switchConsole(
+            buttonType: ButtonType.feature,
+            feature: Feature.none,
+          );
         },
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -35,32 +41,28 @@ class EditorView extends GetView<EditorController> {
                       Colors.blue.shade100,
                     ]),
               ),
-              child: Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    controller.showLayer();
-                  },
-                  child: const Text(" hfjd"),
-                ),
-              ),
+              // child: Center(
+              //   child: ElevatedButton(
+              //     onPressed: () {
+              //       controller.showLayer();
+              //     },
+              //     child: const Text(" hfjd"),
+              //   ),
+              // ),
             ),
 
             // SizedBox(
             //   height: 600,
             //   child: VideoPlayer(controller.videoPlayerController),
             // ),
-            const Divider(height: 0),
-            topBar(),
-            const Expanded(child: SizedBox()),
-            buttonBar(),
-            Obx(() {
-              return SizedBox(height: controller.showButtonBar.isTrue ? 10 : 0);
-            }),
+            Console(controller: controller),
           ],
         ),
       ),
     );
   }
+
+  /*
 
   Widget topBar() {
     return SizeTransition(
@@ -286,4 +288,6 @@ class EditorView extends GetView<EditorController> {
           : const SizedBox();
     });
   }
+
+   */
 }

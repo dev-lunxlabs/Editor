@@ -1,6 +1,9 @@
 enum ButtonType {
   none,
-  core,
-  feature,
   layer,
+  feature,
+  videoFeature,
+  audioFeature,
+  elementFeature,
+  filterFeature,
 }
