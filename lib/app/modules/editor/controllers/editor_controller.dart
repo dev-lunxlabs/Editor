@@ -1,10 +1,3 @@
-import 'package:editor/app/core/enums/audio_feature.dart';
-import 'package:editor/app/core/enums/element_feature.dart';
-import 'package:editor/app/core/enums/filter_feature.dart';
-import 'package:editor/app/modules/editor/controllers/call_audio_feature.dart';
-import 'package:editor/app/modules/editor/controllers/call_element_feature.dart';
-import 'package:editor/app/modules/editor/controllers/call_filter_feature.dart';
-import 'package:editor/app/modules/editor/controllers/call_video_feature.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import '../../../core/enums/aratio_map.dart';
@@ -78,59 +71,11 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
     showLayerController.dispose();
   }
 
-  void switchConsole({
+  void callFeature({
+    required Feature feature,
     required ButtonType buttonType,
-    Feature? feature,
-    VideoFeature? videoFeature,
-    AudioFeature? audioFeature,
-    ElementFeature? elementFeature,
-    FilterFeature? filterFeature,
   }) {
     cButtonType.value = buttonType;
-
-    if (feature != null) {
-      cFeature.value = feature;
-    }
-    switch (cButtonType.value) {
-      case ButtonType.none:
-        {
-          null;
-        }
-        break;
-      case ButtonType.layer:
-        {
-          null;
-        }
-        break;
-      case ButtonType.feature:
-        {
-          callFeature(cFeature.value);
-        }
-        break;
-      case ButtonType.videoFeature:
-        {
-          callVideoFeature(videoFeature!);
-        }
-        break;
-      case ButtonType.audioFeature:
-        {
-          callAudioFeature(audioFeature!);
-        }
-        break;
-      case ButtonType.elementFeature:
-        {
-          callElementFeature(elementFeature!);
-        }
-        break;
-      case ButtonType.filterFeature:
-        {
-          callFilterFeature(filterFeature!);
-        }
-        break;
-    }
-  }
-
-  void callFeature(Feature feature) {
     switch (feature) {
       case Feature.none:
         {
@@ -160,3 +105,57 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
     }
   }
 }
+
+// void switchConsole({
+//   ButtonType? buttonType,
+//   Feature? feature,
+//   VideoFeature? videoFeature,
+//   AudioFeature? audioFeature,
+//   ElementFeature? elementFeature,
+//   FilterFeature? filterFeature,
+// }) {
+//   if(buttonType != null){
+//     cButtonType.value = buttonType;
+//   }
+//
+//   if (feature != null) {
+//     cFeature.value = feature;
+//   }
+//   switch (cButtonType.value) {
+//     case ButtonType.none:
+//       {
+//         null;
+//       }
+//       break;
+//     case ButtonType.layer:
+//       {
+//         null;
+//       }
+//       break;
+//     case ButtonType.feature:
+//       {
+//         callFeature(cFeature.value);
+//       }
+//       break;
+//     case ButtonType.videoFeature:
+//       {
+//         callVideoFeature(videoFeature!);
+//       }
+//       break;
+//     case ButtonType.audioFeature:
+//       {
+//         callAudioFeature(audioFeature!);
+//       }
+//       break;
+//     case ButtonType.elementFeature:
+//       {
+//         callElementFeature(elementFeature!);
+//       }
+//       break;
+//     case ButtonType.filterFeature:
+//       {
+//         callFilterFeature(filterFeature!);
+//       }
+//       break;
+//   }
+// }

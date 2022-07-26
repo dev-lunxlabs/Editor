@@ -18,10 +18,9 @@ class EditorView extends GetView<EditorController> {
         hoverColor: Colors.transparent,
         highlightColor: Colors.transparent,
         onTap: () {
-          //controller.callFeature(Feature.none);
-          controller.switchConsole(
-            buttonType: ButtonType.feature,
+          controller.callFeature(
             feature: Feature.none,
+            buttonType: ButtonType.feature,
           );
         },
         child: Column(
@@ -64,74 +63,7 @@ class EditorView extends GetView<EditorController> {
 
   /*
 
-  Widget topBar() {
-    return SizeTransition(
-      sizeFactor: controller.animation,
-      axis: Axis.vertical,
-      axisAlignment: -1,
-      child: Container(
-        height: 250,
-        //color: Colors.teal[50],
-        child: Column(
-          children: [
-            SizedBox(
-              height: 40,
-              width: 100,
-              child: Container(
-                margin: const EdgeInsets.all(4.0),
-                decoration: BoxDecoration(
-                  color: Colors.pink[100],
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 40,
-              width: 50,
-              child: Container(
-                margin: const EdgeInsets.all(4.0),
-                decoration: BoxDecoration(
-                  color: Colors.indigo[100],
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 40,
-              width: 200,
-              child: Container(
-                margin: const EdgeInsets.all(4.0),
-                decoration: BoxDecoration(
-                  color: Colors.purple[100],
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 40,
-              width: 300,
-              child: Container(
-                margin: const EdgeInsets.all(4.0),
-                decoration: BoxDecoration(
-                  color: Colors.amber[100],
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 40,
-              child: Container(
-                margin: const EdgeInsets.all(4.0),
-                decoration: BoxDecoration(
-                  color: Colors.blue[100],
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+
 
     // return ExpansionTile(
     //   onExpansionChanged: (value) {
