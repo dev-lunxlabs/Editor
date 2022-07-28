@@ -22,10 +22,10 @@ class HomeView extends GetView<HomeController> {
           width: 200,
           child: ElevatedButton(
             onPressed: () {
-              pickVideo().then((videoPath) {
+              pickVideo().then((value) {
                 Get.toNamed(
                   Routes.EDITOR,
-                  arguments: [videoPath],
+                  arguments: [value],
                 );
               });
             },

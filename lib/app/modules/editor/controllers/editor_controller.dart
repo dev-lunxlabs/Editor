@@ -1,3 +1,4 @@
+import 'package:editor/app/model/video_picker_model.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import '../../../core/enums/aratio_map.dart';
@@ -27,7 +28,8 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
   //  Video Player
   late List<VideoPlayerController> listVPC;
   late List<String> videoPath;
-
+  late double playerHeight;
+  late VideoPickerModel videoPickerModel;
   //  Bottom Button Bar
   List<EditorButtonModel> listButton = <EditorButtonModel>[].obs;
 
@@ -53,17 +55,12 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
 
   @override
   void onInit() {
-    //videoPath = Get.arguments[0];
-
+    videoPickerModel = Get.arguments[0];
+    listVPC = [videoPickerModel.videoPlayerController];
+    videoPath = [videoPickerModel.videoPath];
+    playerHeight = listVPC[0].value.size.height;
     listButton = FeatureData.listButton;
-    // videoPlayerController = VideoPlayerController.file(File(videoPath));
-    // videoPlayerController.initialize();
     super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
   }
 
   @override

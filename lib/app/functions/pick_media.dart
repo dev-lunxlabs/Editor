@@ -1,40 +1,34 @@
 import 'dart:io';
+import 'package:editor/app/model/video_picker_model.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
-Future<VideoPlayerController> pickVideo() async {
+Future<VideoPickerModel> pickVideo() async {
   late VideoPlayerController videoPlayerController;
-  FilePickerResult? result = await FilePicker.platform.pickFiles(type: FileType.video);
-  String? videoPath = result?.files.single.path;
-  if (videoPath != null) {
-    videoPlayerController = VideoPlayerController.file(File(videoPath));
-    videoPlayerController.initialize();
+  late String videoPath;
+
+  FilePickerResult? result =
+      await FilePicker.platform.pickFiles(type: FileType.video);
+
+  if (result != null) {
+    videoPath = result.files.single.path!;
+    await Get.defaultDialog(
+      content: StatefulBuilder(
+        builder: (_, setState) {
+          videoPlayerController = VideoPlayerController.file(File(videoPath));
+          videoPlayerController.initialize().then((value) => setState(() {}));
+
+          return const CircularProgressIndicator();
+        },
+      ),
+    );
   }
 
-  // await showDialog<void>(
-  //   context: context,
-  //   builder: (BuildContext context) {
-  //     int? selectedRadio = 0;
-  //     return AlertDialog(
-  //       content: StatefulBuilder(
-  //         builder: (BuildContext context, StateSetter setState) {
-  //           return Column(
-  //             mainAxisSize: MainAxisSize.min,
-  //             children: List<Widget>.generate(4, (int index) {
-  //               return Radio<int>(
-  //                 value: index,
-  //                 groupValue: selectedRadio,
-  //                 onChanged: (int? value) {
-  //                   setState(() => selectedRadio = value);
-  //                 },
-  //               );
-  //             }),
-  //           );
-  //         },
-  //       ),
-  //     );
-  //   },
-  // );
-
-  return videoPlayerController;
+  return VideoPickerModel(
+    videoPath: videoPath,
+    framesPath: [''],
+    videoPlayerController: videoPlayerController,
+  );
 }

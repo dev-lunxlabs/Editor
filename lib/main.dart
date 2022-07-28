@@ -11,7 +11,7 @@ void main() {
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: Themes.lightTheme,
-      initialRoute: Routes.EDITOR, //AppPages.INITIAL,
+      initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
   );

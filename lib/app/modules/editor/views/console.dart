@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/enums/button_type.dart';
+import '../../../functions/pick_media.dart';
 import '../../../widgets/editor_button.dart';
 import '../controllers/call_audio_feature.dart';
 import '../controllers/call_element_feature.dart';
@@ -112,21 +113,33 @@ class Console extends StatelessWidget {
           Container(
             width: 280,
             height: 65,
-            margin: EdgeInsets.symmetric(horizontal: 12.0),
+            margin: const EdgeInsets.symmetric(horizontal: 12.0),
             decoration: BoxDecoration(
               color: Colors.amber[300],
               borderRadius: BorderRadius.circular(8.0),
             ),
           ),
-          Container(
-            width: 90,
-            height: 65,
-            margin: EdgeInsets.symmetric(horizontal: 12.0),
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(8.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: SizedBox(
+              width: 90,
+              height: 65,
+              child: TextButton(
+                onPressed: () {
+                  pickVideo().then((value) {
+                    controller.listVPC.add(value.videoPlayerController);
+                    controller.videoPath.add(value.videoPath);
+                  });
+                },
+                style: TextButton.styleFrom(
+                  primary: Colors.black,
+                  backgroundColor: Colors.grey[200],
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0)),
+                ),
+                child: const Icon(Icons.add),
+              ),
             ),
-            child: Icon(Icons.add),
           ),
         ],
       ),
@@ -161,9 +174,9 @@ class Console extends StatelessWidget {
         const Expanded(child: SizedBox()),
         TextButton(
           onPressed: () {
-            // controller.videoPlayerController.value.isPlaying
-            //     ? controller.videoPlayerController.pause()
-            //     : controller.videoPlayerController.play();
+            controller.listVPC[0].value.isPlaying
+                ? controller.listVPC[0].pause()
+                : controller.listVPC[0].play();
           },
           style: TextButton.styleFrom(
             primary: Colors.black,
@@ -172,11 +185,10 @@ class Console extends StatelessWidget {
               borderRadius: BorderRadius.circular(25.0),
             ),
           ),
-          child: const Icon(
-            // controller.videoPlayerController.value.isPlaying
-            //     ? Icons.pause
-            //     :
-            Icons.play_arrow_rounded,
+          child: Icon(
+            controller.listVPC[0].value.isPlaying
+                ? Icons.pause
+                : Icons.play_arrow_rounded,
           ),
         ),
         const Expanded(child: SizedBox()),
@@ -195,9 +207,8 @@ class Console extends StatelessWidget {
           onPressed: () {
             controller.cButtonType.value = ButtonType.layer;
             controller.cButtonType.value == ButtonType.layer
-            ? controller.showLayerController.reverse()
-            : controller.showLayerController.forward();
-
+                ? controller.showLayerController.reverse()
+                : controller.showLayerController.forward();
           },
           style: TextButton.styleFrom(
             primary: Colors.black,
