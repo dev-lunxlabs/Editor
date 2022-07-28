@@ -1,4 +1,5 @@
-import 'package:editor/app/model/video_picker_model.dart';
+import 'dart:io';
+
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import '../../../core/enums/aspectratio_map.dart';
@@ -14,6 +15,8 @@ import '../../../data/video_data.dart';
 import '../../../model/editor_button_model.dart';
 import 'package:flutter/material.dart';
 
+import '../../../model/vpc_model.dart';
+
 class EditorController extends GetxController with GetTickerProviderStateMixin {
   //  Animation
   late final AnimationController showLayerController = AnimationController(
@@ -26,7 +29,9 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
   );
 
   //  Video Player
-  final listPath = <String?>[].obs;
+  // late List<VPCModel> listVPC;
+  late VPCModel currentVPC;
+  late List<String> listPath;
   RxInt currentVideo = 0.obs;
 
   //  Bottom Button Bar
@@ -54,11 +59,9 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
 
   @override
   void onInit() {
-    videoPickerModel = Get.arguments[0];
-    listVPC = [videoPickerModel.videoPlayerController];
-    videoPath = [videoPickerModel.videoPath];
-    playerHeight = listVPC[0].value.size.height;
+    listPath = Get.arguments[0];
     listButton = FeatureData.listButton;
+    initializeVPC();
     super.onInit();
   }
 
@@ -67,7 +70,20 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
     showLayerController.dispose();
   }
 
-  void initializeVPC() {}
+  void initializeVPC() {
+    currentVPC = VPCModel(
+      vpc: VideoPlayerController.file(File(listPath[currentVideo.value]))
+        ..initialize(),
+    );
+  }
+
+  void switchVPC() {
+    currentVPC.vpc.addListener(() {
+      currentVPC.vpc.value.duration < const Duration(milliseconds: 400);
+      currentVideo.value = currentVideo.value + 1;
+    });
+    initializeVPC();
+  }
 
   void callFeature({
     required Feature feature,

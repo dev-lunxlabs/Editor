@@ -126,9 +126,10 @@ class Console extends StatelessWidget {
               height: 65,
               child: TextButton(
                 onPressed: () {
-                  pickVideo().then((value) {
-                    controller.listVPC.add(value.videoPlayerController);
-                    controller.videoPath.add(value.videoPath);
+                  pickVideos().then((value) {
+                    for (String? path in value) {
+                      controller.listPath.add(path!);
+                    }
                   });
                 },
                 style: TextButton.styleFrom(
@@ -174,9 +175,9 @@ class Console extends StatelessWidget {
         const Expanded(child: SizedBox()),
         TextButton(
           onPressed: () {
-            controller.listVPC[0].value.isPlaying
-                ? controller.listVPC[0].pause()
-                : controller.listVPC[0].play();
+            controller.currentVPC.vpc.value.isPlaying
+                ? controller.currentVPC.vpc.pause()
+                : controller.currentVPC.vpc.play();
           },
           style: TextButton.styleFrom(
             primary: Colors.black,
@@ -186,7 +187,7 @@ class Console extends StatelessWidget {
             ),
           ),
           child: Icon(
-            controller.listVPC[0].value.isPlaying
+            controller.currentVPC.vpc.value.isPlaying
                 ? Icons.pause
                 : Icons.play_arrow_rounded,
           ),
