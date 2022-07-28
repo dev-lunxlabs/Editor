@@ -1,8 +1,7 @@
-import 'package:editor/app/functions/pick_media.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
+import '../../../functions/pick_media.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
@@ -22,11 +21,8 @@ class HomeView extends GetView<HomeController> {
           width: 200,
           child: ElevatedButton(
             onPressed: () {
-              pickVideo().then((value) {
-                Get.toNamed(
-                  Routes.EDITOR,
-                  arguments: [value],
-                );
+              pickVideos().then((value) {
+                Get.toNamed(Routes.EDITOR);
               });
             },
             child: const Text("pick media"),

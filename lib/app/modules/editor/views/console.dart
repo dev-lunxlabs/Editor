@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../core/enums/button_type.dart';
 import '../../../functions/pick_media.dart';
-import '../../../widgets/editor_button.dart';
+import 'editor_button.dart';
 import '../controllers/call_audio_feature.dart';
 import '../controllers/call_element_feature.dart';
 import '../controllers/call_filter_feature.dart';

@@ -58,3 +58,4 @@ class VideoModel {
   final double startDuration, endDuration, volume, height, width;
   final String path;
 }
+

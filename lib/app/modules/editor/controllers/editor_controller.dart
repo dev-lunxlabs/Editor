@@ -1,7 +1,7 @@
 import 'package:editor/app/model/video_picker_model.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
-import '../../../core/enums/aratio_map.dart';
+import '../../../core/enums/aspectratio_map.dart';
 import '../../../core/enums/button_type.dart';
 import '../../../core/enums/feature.dart';
 import '../../../core/enums/rectangle_enum.dart';
@@ -26,10 +26,9 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
   );
 
   //  Video Player
-  late List<VideoPlayerController> listVPC;
-  late List<String> videoPath;
-  late double playerHeight;
-  late VideoPickerModel videoPickerModel;
+  final listPath = <String?>[].obs;
+  RxInt currentVideo = 0.obs;
+
   //  Bottom Button Bar
   List<EditorButtonModel> listButton = <EditorButtonModel>[].obs;
 
@@ -67,6 +66,8 @@ class EditorController extends GetxController with GetTickerProviderStateMixin {
   void onClose() {
     showLayerController.dispose();
   }
+
+  void initializeVPC() {}
 
   void callFeature({
     required Feature feature,
